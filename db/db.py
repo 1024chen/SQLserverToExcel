@@ -4,7 +4,7 @@ from config import *
 
 
 def auth_connection():
-    return pymssql.connect(server=host, database=database)
+    return pymssql.connect(server=host, database=database, autocommit=autocommit, as_dict=as_dict)
 
 
 def password_connection():
