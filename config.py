@@ -1,3 +1,6 @@
+# 是否开启windows身份认证，默认关闭
+is_auth_enable = False
+
 # 数据库信息，下面包含了必须修改的参数
 host = "xxx.xxx.xxx.xxx"
 user = "xx"

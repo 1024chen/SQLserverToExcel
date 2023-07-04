@@ -3,8 +3,11 @@ import logging
 from config import *
 
 
-# 获取数据库连接
-def get_connection():
+def auth_connection():
+    return pymssql.connect(server=host, database=database)
+
+
+def password_connection():
     return pymssql.connect(server=host,
                            user=user,
                            password=password,
@@ -15,6 +18,14 @@ def get_connection():
                            port=port,
                            autocommit=autocommit
                            )
+
+
+# 获取数据库连接
+def get_connection():
+    if is_auth_enable:
+        return auth_connection()
+    else:
+        return password_connection()
 
 
 # 查询数据，比如直接 cursor.execute('select * from usrTBTS')
